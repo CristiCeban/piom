@@ -3,6 +3,7 @@ import { TopicStack, TopicStackScreens } from '../TopicStack';
 import { Home } from '../screens/Home';
 import { Icon } from 'native-base';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { ProfileScreen } from '../screens/ProfileScreen';
 import { ProposeThemeScreen } from '../screens/ProposeThemeScreen';
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -38,6 +39,7 @@ export function TeacherNavigator() {
         name={TeacherStackScreens.ProposeTheme}
         component={ProposeThemeScreen}
         options={{
+          title: 'Propose Topic',
           tabBarIcon: ({ color, size }) => (
             <Icon as={Ionicons} name="add" color={color} size={size} />
           ),
@@ -48,6 +50,8 @@ export function TeacherNavigator() {
         name={TopicStackScreens.TopicNavigator}
         component={TopicStack}
         options={{
+          headerShown: false,
+          title: 'my topics',
           tabBarIcon: ({ color, size }) => (
             <Icon
               as={Ionicons}
@@ -60,7 +64,7 @@ export function TeacherNavigator() {
       />
       <Tab.Screen
         name={TeacherStackScreens.Profile}
-        component={ProposeThemeScreen}
+        component={ProfileScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Icon as={Ionicons} name="person" color={color} size={size} />

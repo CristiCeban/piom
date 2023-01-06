@@ -94,32 +94,39 @@
     },
     {
       "deadline": "2023-01-06T13:41:21.107Z",
-      "title": "new",
+      "name": "new",
       "description": "ads",
       "student_id": 3,
       "id": 10
     },
     {
       "deadline": "2023-01-06T13:42:45.690Z",
-      "title": "dsa",
+      "name": "dsa",
       "description": "dsa",
       "student_id": 3,
       "id": 11
     },
     {
       "deadline": "2023-01-06T14:15:49.888Z",
-      "title": "daas",
+      "name": "daas",
       "description": "dasdasd",
       "student_id": 3,
       "id": 12
     },
     {
       "deadline": "2023-01-06T14:17:54.852Z",
-      "title": "ads",
+      "name": "ads",
       "description": "das",
       "teacher_id": 4,
       "id": 13,
       "isSelected": false
+    },
+    {
+      "deadline": "2023-01-06T19:15:45.476Z",
+      "name": "title",
+      "description": "very long description is going here to beeeeedaed as das das das das das",
+      "teacher_id": 4,
+      "id": 14
     }
   ],
   "messages": [

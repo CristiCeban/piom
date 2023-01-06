@@ -21,6 +21,9 @@ export function TopicStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        options={{
+          title: 'Topic Progress',
+        }}
         name={TopicStackScreens.TopicProgress}
         component={TopicProgressScreen}
       />

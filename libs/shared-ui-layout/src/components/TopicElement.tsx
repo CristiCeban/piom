@@ -1,8 +1,8 @@
-import { ActivityIndicator, TouchableOpacity } from 'react-native';
 import { Box, Icon, IconButton, Spinner, Text } from 'native-base';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import React from 'react';
+import { TouchableOpacity } from 'react-native';
 
 export type TopicElementProps = {
   id: number;
@@ -32,8 +32,9 @@ export function TopicElement({
   const Wrapper = ({ children }: { children: React.ReactNode }) => {
     if (onPress) {
       return (
-        <TouchableOpacity onPress={onPress}>
+        <TouchableOpacity onPress={onPress} style={{ flex: 1 }}>
           <Box
+            flex="1"
             p="4"
             bg={isSelected ? 'indigo.700' : 'indigo.500'}
             borderRadius="md"
@@ -45,6 +46,7 @@ export function TopicElement({
     }
     return (
       <Box
+        flex="1"
         p="4"
         bg={isSelected ? 'indigo.700' : 'indigo.500'}
         borderRadius="md"
@@ -60,12 +62,18 @@ export function TopicElement({
         flexDirection="row"
         justifyContent="space-between"
         alignItems="center"
+        flex="1"
       >
-        <Box>
+        <Box flex="1">
           <Text fontSize="lg" color={isSelected ? 'white' : 'black'}>
             {name}
           </Text>
-          <Text fontSize="sm" color={isSelected ? 'white' : 'black'}>
+          <Text
+            numberOfLines={1}
+            fontSize="sm"
+            flex="1"
+            color={isSelected ? 'white' : 'black'}
+          >
             {description}
           </Text>
         </Box>

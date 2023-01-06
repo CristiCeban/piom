@@ -1,4 +1,4 @@
-import { Center, Text } from 'native-base';
+import { Box, Center, Spinner } from 'native-base';
 
 import React from 'react';
 import { TopicOverview } from '@piom/ui-components';
@@ -10,12 +10,19 @@ export function TopicScreen() {
   // I will refactor this later
   const route = useRoute<any>();
   const { topicId } = route.params;
-  const { data } = useGetTopicQuery(topicId);
-  console.log(data);
+  const { data, isLoading: isLoadingTopicData } = useGetTopicQuery(topicId);
+  if (isLoadingTopicData) {
+    return (
+      <Center flex="1">
+        <Spinner size="lg" />
+      </Center>
+    );
+  }
   return (
-    <Center>
-      <TopicOverview topic={data} />
-      <Text>{topicId}</Text>
-    </Center>
+    <Box flex="1">
+      <Box py="4">
+        <TopicOverview topic={data} />
+      </Box>
+    </Box>
   );
 }

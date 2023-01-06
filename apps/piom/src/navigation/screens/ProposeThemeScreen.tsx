@@ -11,7 +11,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export interface TopicForm {
   id: number;
-  title: string;
+  name: string;
   description: string;
   deadline: Date;
 }
@@ -80,11 +80,11 @@ export function ProposeThemeScreen() {
             rules={{
               required: { value: true, message: 'Title is required' },
             }}
-            name="title"
+            name="name"
             render={({
               field: { onChange, onBlur, value },
               formState: {
-                errors: { title: titleError },
+                errors: { name: titleError },
               },
             }) => (
               <>

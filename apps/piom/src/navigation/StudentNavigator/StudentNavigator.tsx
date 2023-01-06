@@ -39,6 +39,7 @@ export function StudentNavigator() {
         name={StudentStackScreens.ProposeTheme}
         component={ProposeThemeScreen}
         options={{
+          title: 'Propose Topic',
           tabBarIcon: ({ color, size }) => (
             <Icon as={Ionicons} name="add" color={color} size={size} />
           ),
@@ -50,6 +51,7 @@ export function StudentNavigator() {
         component={TopicStack}
         options={{
           headerShown: false,
+          title: 'my topics',
           tabBarIcon: ({ color, size }) => (
             <Icon
               as={Ionicons}
