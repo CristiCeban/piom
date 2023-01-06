@@ -50,3 +50,9 @@ export const selectIsStudent = (state: RootState) =>
   state.auth.role === 'student';
 
 export const selectUserId = (state: RootState) => state.auth.id;
+
+export const selectAuthUser = (state: RootState) => ({
+  id: state.auth.id,
+  email: state.auth.email,
+  role: state.auth.role,
+});
