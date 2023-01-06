@@ -16,7 +16,7 @@ export type TopicElementProps = {
 type TopicElementPropsEnhanced = TopicElementProps & {
   isSelected: boolean;
   onPress?: () => void;
-  onPressCheckMark: () => void;
+  onPressCheckMark?: () => void;
   isLoading?: boolean;
 };
 

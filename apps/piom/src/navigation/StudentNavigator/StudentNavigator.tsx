@@ -1,27 +1,27 @@
+import { TopicStack, TopicStackScreens } from '../TopicStack';
+
 import { Home } from '../screens/Home';
 import { Icon } from 'native-base';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ProfileScreen } from '../screens/ProfileScreen';
 import { ProposeThemeScreen } from '../screens/ProposeThemeScreen';
 import React from 'react';
-import { TopicProgress } from '../screens/TopicProgress';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 export enum StudentStackScreens {
   Home = 'Home',
   ProposeTheme = 'ProposeTheme',
   Profile = 'Profile',
-  TopicProgress = 'TopicProgress',
 }
 
 export type StudentStackParamList = {
   [StudentStackScreens.Home]: undefined;
   [StudentStackScreens.ProposeTheme]: undefined;
   [StudentStackScreens.Profile]: undefined;
-  [StudentStackScreens.TopicProgress]: undefined;
+  [TopicStackScreens.TopicNavigator]: undefined;
 };
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<StudentStackParamList>();
 
 export function StudentNavigator() {
   return (
@@ -46,9 +46,10 @@ export function StudentNavigator() {
         }}
       />
       <Tab.Screen
-        name={StudentStackScreens.TopicProgress}
-        component={TopicProgress}
+        name={TopicStackScreens.TopicNavigator}
+        component={TopicStack}
         options={{
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Icon
               as={Ionicons}
