@@ -9,6 +9,15 @@
     "react-native": "*",
     "react-native-config": "*",
     "react-native-svg": "*",
-    "@react-native-async-storage/async-storage": "*"
+    "@react-native-async-storage/async-storage": "*",
+    "react-native-gesture-handler": "*",
+    "native-base": "*",
+    "@react-navigation/native": "*",
+    "react-native-safe-area-context": "*",
+    "@react-navigation/stack": "*",
+    "react-native-screens": "*",
+    "react-redux": "*",
+    "@reduxjs/toolkit": "*",
+    "react-native-flipper": "*"
   }
 }
