@@ -29,4 +29,7 @@ const { actions, reducer } = authSlice;
 
 // TODO: to not create circular dependency, maybe to add some
 // module augmentation in the future to hack this
-export const selectAuthToken = (state: any) => state.auth.authToken;
+interface RootState {
+  auth: AuthState;
+}
+export const selectAuthToken = (state: RootState) => state.auth.authToken;

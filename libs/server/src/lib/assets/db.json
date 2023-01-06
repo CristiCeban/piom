@@ -1,34 +1,14 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "John Doe",
-      "email": "",
-      "phone": ""
+      "email": "olivier@mail.com",
+      "password": "$2a$10$q5udTJhpxOq3L57Qx/NgHe0jCoqZcCCbajpaoH6YJX/Vd5twys3kO",
+      "id": 2
     },
     {
-      "id": 2,
-      "name": "Jane Doe",
-      "email": "",
-      "phone": ""
-    },
-    {
-      "id": 3,
-      "name": "John Smith",
-      "email": "",
-      "phone": ""
-    },
-    {
-      "id": 4,
-      "name": "Jane Smith",
-      "email": "",
-      "phone": ""
-    },
-    {
-      "id": 5,
-      "name": "John Doe",
-      "email": "",
-      "phone": ""
+      "email": "janedoe@gmail.com",
+      "password": "$2a$10$PPOnWSN2Z1oo50BFuFnCHOnSbDVViIuzui/4Z5IcPCFIeImdGIp5i",
+      "id": 3
     }
   ]
 }

@@ -17,6 +17,7 @@
     "paths": {
       "@piom/app": ["apps/piom/src/index.ts"],
       "@piom/auth": ["libs/auth/src/index.ts"],
+      "@piom/constants": ["libs/constants/src/index.ts"],
       "@piom/ui-components": ["libs/shared-ui-layout/src/index.ts"],
       "@proiect/server": ["libs/server/src/index.ts"]
     }

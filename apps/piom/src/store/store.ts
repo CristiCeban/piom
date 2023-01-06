@@ -4,9 +4,9 @@ import {
   configureStore,
 } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { authSlice } from '@piom/auth';
+import { authApi, authSlice } from '@piom/auth';
+
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { useCallback } from 'react';
 
@@ -20,12 +20,15 @@ if (__DEV__ && !process.env.JEST_WORKER_ID) {
 
 const reducers = {
   auth: authSlice.reducer,
+  [authApi.reducerPath]: authApi.reducer,
 };
 
 export const store = configureStore({
   reducer: reducers,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({ serializableCheck: false }).concat(middleware),
+    getDefaultMiddleware({ serializableCheck: false })
+      .concat(middleware)
+      .concat(authApi.middleware),
 });
 
 setupListeners(store.dispatch);

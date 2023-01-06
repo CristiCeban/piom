@@ -10,10 +10,25 @@ import {
   Text,
   VStack,
 } from 'native-base';
+import { Controller, useForm } from 'react-hook-form';
 
 import React from 'react';
+import { UserLoginData } from '../api/types';
+import { useLoginMutation } from '../api';
 
 export function LoginScreen() {
+  const [login, { isLoading }] = useLoginMutation();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<UserLoginData>();
+
+  const onSubmit = async (data: UserLoginData) => {
+    const a = await login(data);
+    console.log(a);
+  };
+
   return (
     <Center w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
@@ -40,13 +55,72 @@ export function LoginScreen() {
         </Heading>
 
         <VStack space={3} mt="5">
-          <FormControl>
+          <FormControl isRequired isInvalid={'email' in errors}>
             <FormControl.Label>Email ID</FormControl.Label>
-            <Input />
+            <Controller
+              control={control}
+              rules={{
+                required: { value: true, message: 'Email is required' },
+                validate: (value) => {
+                  // regex for email
+                  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+                  return emailRegex.test(value) || 'Invalid email address';
+                },
+              }}
+              name="email"
+              render={({
+                field: { onChange, onBlur, value },
+                formState: {
+                  errors: { email: emailError },
+                },
+              }) => (
+                <>
+                  <Input
+                    autoCapitalize="none"
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value}
+                  />
+                  {emailError && (
+                    <FormControl.ErrorMessage>
+                      {emailError.message}
+                    </FormControl.ErrorMessage>
+                  )}
+                </>
+              )}
+            />
           </FormControl>
-          <FormControl>
+
+          <FormControl isRequired isInvalid={'password' in errors}>
             <FormControl.Label>Password</FormControl.Label>
-            <Input type="password" />
+            <Controller
+              control={control}
+              rules={{
+                required: true,
+              }}
+              name="password"
+              render={({
+                field: { onChange, onBlur, value },
+                formState: {
+                  errors: { password: passwordError },
+                },
+              }) => (
+                <>
+                  <Input
+                    autoCapitalize="none"
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value}
+                    type="password"
+                  />
+                  {passwordError && (
+                    <FormControl.ErrorMessage>
+                      {passwordError.message}
+                    </FormControl.ErrorMessage>
+                  )}
+                </>
+              )}
+            />
             <Link
               _text={{
                 fontSize: 'xs',
@@ -59,7 +133,13 @@ export function LoginScreen() {
               Forget Password?
             </Link>
           </FormControl>
-          <Button mt="2" colorScheme="indigo">
+          <Button
+            mt="2"
+            colorScheme="indigo"
+            onPress={handleSubmit(onSubmit)}
+            isLoading={isLoading}
+            isDisabled={isLoading}
+          >
             Sign in
           </Button>
           <HStack mt="6" justifyContent="center">
