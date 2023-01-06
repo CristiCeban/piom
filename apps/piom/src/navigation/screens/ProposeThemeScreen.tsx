@@ -10,6 +10,7 @@ import { useAppSelector } from '../../store/store';
 import { useNavigation } from '@react-navigation/native';
 
 export interface TopicForm {
+  id: number;
   title: string;
   description: string;
   deadline: Date;

@@ -1,4 +1,4 @@
-import { Home } from './Home';
+import { Home } from '../screens/Home';
 import { Icon } from 'native-base';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ProfileScreen } from '../screens/ProfileScreen';

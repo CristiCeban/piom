@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { API_URL } from '@piom/constants';
+import { TopicElementProps } from '@piom/ui-components';
 import { TopicForm } from '../navigation/screens/ProposeThemeScreen';
 
 export type TopicFormRequest = TopicForm &
@@ -9,6 +10,7 @@ export type TopicFormRequest = TopicForm &
 export const appApi = createApi({
   reducerPath: 'appApi',
   baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
+  tagTypes: ['Topic'],
   endpoints: (builder) => ({
     proposeTopic: builder.mutation<void, TopicFormRequest>({
       query: (body) => ({
@@ -16,11 +18,25 @@ export const appApi = createApi({
         method: 'POST',
         body,
       }),
+      invalidatesTags: ['Topic'],
     }),
-    getTopics: builder.query({
+    getTopics: builder.query<TopicElementProps[], void>({
       query: () => '/topics',
+      providesTags: ['Topic'],
+    }),
+    acceptTopic: builder.mutation<void, TopicFormRequest>({
+      query: (body) => ({
+        url: `/topics/${body.id}`,
+        method: 'PUT',
+        body,
+      }),
+      invalidatesTags: ['Topic'],
     }),
   }),
 });
 
-export const { useGetTopicsQuery, useProposeTopicMutation } = appApi;
+export const {
+  useAcceptTopicMutation,
+  useGetTopicsQuery,
+  useProposeTopicMutation,
+} = appApi;
