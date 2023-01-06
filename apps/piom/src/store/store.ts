@@ -5,7 +5,7 @@ import {
 } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { authApi, authSlice } from '@piom/auth';
+import { authApi, authReducer } from '@piom/auth';
 
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { useCallback } from 'react';
@@ -19,7 +19,7 @@ if (__DEV__ && !process.env.JEST_WORKER_ID) {
 }
 
 const reducers = {
-  auth: authSlice.reducer,
+  auth: authReducer,
   [authApi.reducerPath]: authApi.reducer,
 };
 

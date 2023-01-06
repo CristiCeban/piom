@@ -8,5 +8,6 @@ export interface UserReturnData {
   user: {
     email: string;
     id: number;
+    role: 'teacher' | 'student';
   };
 }

@@ -2,6 +2,7 @@ import { UserLoginData, UserReturnData } from './types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { API_URL } from '@piom/constants';
+import { authActions } from '../store';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -13,6 +14,10 @@ export const authApi = createApi({
         method: 'POST',
         body,
       }),
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        const { data } = await queryFulfilled;
+        dispatch(authActions.login(data));
+      },
     }),
   }),
 });

@@ -19,6 +19,8 @@
     "react-redux": "*",
     "@reduxjs/toolkit": "*",
     "react-native-flipper": "*",
-    "redux-flipper": "*"
+    "redux-flipper": "*",
+    "@react-navigation/bottom-tabs": "*",
+    "react-hook-form": "*"
   }
 }

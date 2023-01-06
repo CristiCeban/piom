@@ -12,9 +12,11 @@ import {
 } from 'native-base';
 import { Controller, useForm } from 'react-hook-form';
 
+import { AuthStackParamList } from './AuthNavigator';
 import React from 'react';
 import { UserLoginData } from '../api/types';
 import { useLoginMutation } from '../api';
+import { useNavigation } from '@react-navigation/native';
 
 export function LoginScreen() {
   const [login, { isLoading }] = useLoginMutation();
@@ -23,6 +25,8 @@ export function LoginScreen() {
     handleSubmit,
     formState: { errors },
   } = useForm<UserLoginData>();
+
+  const navigation = useNavigation();
 
   const onSubmit = async (data: UserLoginData) => {
     const a = await login(data);
@@ -158,7 +162,8 @@ export function LoginScreen() {
                 fontWeight: 'medium',
                 fontSize: 'sm',
               }}
-              href="#"
+              // @ts-expect-error
+              onPress={() => navigation.navigate('SignUp')}
             >
               Sign Up
             </Link>

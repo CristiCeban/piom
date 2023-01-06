@@ -3,12 +3,14 @@
     {
       "email": "olivier@mail.com",
       "password": "$2a$10$q5udTJhpxOq3L57Qx/NgHe0jCoqZcCCbajpaoH6YJX/Vd5twys3kO",
-      "id": 2
+      "id": 2,
+      "role": "teacher"
     },
     {
       "email": "janedoe@gmail.com",
       "password": "$2a$10$PPOnWSN2Z1oo50BFuFnCHOnSbDVViIuzui/4Z5IcPCFIeImdGIp5i",
-      "id": 3
+      "id": 3,
+      "role": "student"
     }
   ]
 }
