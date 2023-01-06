@@ -15,8 +15,96 @@
     {
       "email": "olivier@gmail.com",
       "password": "$2a$10$PPOnWSN2Z1oo50BFuFnCHOnSbDVViIuzui/4Z5IcPCFIeImdGIp5i",
-      "id": 3,
+      "id": 4,
       "role": "teacher"
+    }
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "name": "Tema 1",
+      "description": "Descriere tema 1",
+      "deadline": "2019-12-12",
+      "teacher_id": 2,
+      "student_id": 3
+    },
+    {
+      "id": 2,
+      "name": "Tema 2",
+      "description": "Descriere tema 2",
+      "deadline": "2019-12-12",
+      "teacher_id": 2,
+      "student_id": 3
+    },
+    {
+      "id": 3,
+      "name": "Tema 3",
+      "description": "Descriere tema 3",
+      "deadline": "2019-12-12",
+      "teacher_id": 2,
+      "student_id": 3
+    },
+    {
+      "id": 4,
+      "name": "Tema 4",
+      "description": "Descriere tema 4",
+      "deadline": "2019-12-12",
+      "teacher_id": 2,
+      "student_id": 3
+    },
+    {
+      "id": 5,
+      "name": "Tema 5",
+      "description": "Descriere tema 5",
+      "deadline": "2019-12-12",
+      "teacher_id": 2,
+      "student_id": 3
+    },
+    {
+      "id": 6,
+      "name": "Tema 6",
+      "description": "Descriere tema 6",
+      "deadline": "2019-12-12",
+      "teacher_id": 2,
+      "student_id": 3
+    },
+    {
+      "id": 7,
+      "name": "Tema 7",
+      "description": "Descriere tema 7",
+      "deadline": "2019-12-12",
+      "teacher_id": 2,
+      "student_id": 3
+    },
+    {
+      "id": 8,
+      "name": "Tema 8",
+      "description": "Descriere tema 8",
+      "deadline": "2019-12-12",
+      "teacher_id": 2,
+      "student_id": 3
+    },
+    {
+      "id": 9,
+      "name": "Tema 9",
+      "description": "Descriere tema 9",
+      "deadline": "2019-12-12",
+      "teacher_id": 2,
+      "student_id": 3
+    },
+    {
+      "deadline": "2023-01-06T13:41:21.107Z",
+      "title": "new",
+      "description": "ads",
+      "student_id": 3,
+      "id": 10
+    },
+    {
+      "deadline": "2023-01-06T13:42:45.690Z",
+      "title": "dsa",
+      "description": "dsa",
+      "student_id": 3,
+      "id": 11
     }
   ]
 }

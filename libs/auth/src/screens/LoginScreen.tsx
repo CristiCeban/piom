@@ -12,7 +12,6 @@ import {
 } from 'native-base';
 import { Controller, useForm } from 'react-hook-form';
 
-import { AuthStackParamList } from './AuthNavigator';
 import React from 'react';
 import { UserLoginData } from '../api/types';
 import { useLoginMutation } from '../api';

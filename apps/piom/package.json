@@ -21,6 +21,8 @@
     "react-native-flipper": "*",
     "redux-flipper": "*",
     "@react-navigation/bottom-tabs": "*",
-    "react-hook-form": "*"
+    "react-hook-form": "*",
+    "react-native-vector-icons": "*",
+    "@react-native-community/datetimepicker": "*"
   }
 }

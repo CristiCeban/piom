@@ -9,6 +9,7 @@
   },
   "private": true,
   "dependencies": {
+    "@react-native-community/datetimepicker": "^6.7.1",
     "@react-native-masked-view/masked-view": "^0.2.8",
     "@react-navigation/bottom-tabs": "^6.5.2",
     "@react-navigation/native": "^6.1.1",

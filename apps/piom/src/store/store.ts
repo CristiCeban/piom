@@ -7,6 +7,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { authApi, authReducer } from '@piom/auth';
 
+import { appApi } from '../api/index';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { useCallback } from 'react';
 
@@ -20,6 +21,7 @@ if (__DEV__ && !process.env.JEST_WORKER_ID) {
 
 const reducers = {
   auth: authReducer,
+  [appApi.reducerPath]: appApi.reducer,
   [authApi.reducerPath]: authApi.reducer,
 };
 
@@ -28,6 +30,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false })
       .concat(middleware)
+      .concat(appApi.middleware)
       .concat(authApi.middleware),
 });
 
@@ -49,6 +52,7 @@ export function useDispatchAction<T extends string = string>(
   action: ActionCreatorWithPayload<T>
 ): ReturnType<typeof useCallback>;
 
+// TODO: fix this type later
 export function useDispatchAction(action: any) {
   const dispatch = useAppDispatch();
   return useCallback(() => dispatch(action()), [dispatch, action]);
