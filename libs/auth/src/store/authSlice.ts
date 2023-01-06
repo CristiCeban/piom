@@ -1,6 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { RootState } from '@piom/app';
 export interface AuthState {
   authToken?: string;
   username?: string;
@@ -28,4 +27,6 @@ export const authSlice = createSlice({
 
 const { actions, reducer } = authSlice;
 
-export const selectAuthToken = (state: RootState) => state.auth.authToken;
+// TODO: to not create circular dependency, maybe to add some
+// module augmentation in the future to hack this
+export const selectAuthToken = (state: any) => state.auth.authToken;

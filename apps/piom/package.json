@@ -18,6 +18,7 @@
     "react-native-screens": "*",
     "react-redux": "*",
     "@reduxjs/toolkit": "*",
-    "react-native-flipper": "*"
+    "react-native-flipper": "*",
+    "redux-flipper": "*"
   }
 }
