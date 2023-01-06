@@ -121,5 +121,13 @@
       "id": 13,
       "isSelected": false
     }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "sender_id": 2,
+      "topic_id": 3,
+      "message": "Hello"
+    }
   ]
 }

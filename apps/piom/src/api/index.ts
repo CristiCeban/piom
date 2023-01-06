@@ -24,6 +24,10 @@ export const appApi = createApi({
       query: () => '/topics',
       providesTags: ['Topic'],
     }),
+    getTopic: builder.query<TopicElementProps, number>({
+      query: (id) => `/topics/${id}`,
+      providesTags: ['Topic'],
+    }),
     acceptTopic: builder.mutation<void, TopicFormRequest>({
       query: (body) => ({
         url: `/topics/${body.id}`,
@@ -38,5 +42,6 @@ export const appApi = createApi({
 export const {
   useAcceptTopicMutation,
   useGetTopicsQuery,
+  useGetTopicQuery,
   useProposeTopicMutation,
 } = appApi;
