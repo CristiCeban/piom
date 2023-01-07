@@ -44,7 +44,7 @@ export function TopicProgressScreen() {
   }
 
   return (
-    <Box px="4" pt="2">
+    <Box px="4" pt="2" flex="1">
       <Heading pb="2">My Topics Progress</Heading>
       <FlatList
         data={topics}

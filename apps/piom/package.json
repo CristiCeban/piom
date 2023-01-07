@@ -23,6 +23,7 @@
     "@react-navigation/bottom-tabs": "*",
     "react-hook-form": "*",
     "react-native-vector-icons": "*",
-    "@react-native-community/datetimepicker": "*"
+    "@react-native-community/datetimepicker": "*",
+    "moment": "*"
   }
 }
