@@ -1,11 +1,11 @@
+import { Alert, Platform } from 'react-native';
 import { Box, Button, FormControl, Heading, Input, VStack } from 'native-base';
 import { Controller, useForm } from 'react-hook-form';
+import React, { useState } from 'react';
 import { TopicFormRequest, useProposeTopicMutation } from '../../api';
 import { selectIsTeacher, selectUserId } from '@piom/auth';
 
-import { Alert } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import React from 'react';
 import { useAppSelector } from '../../store/store';
 import { useNavigation } from '@react-navigation/native';
 
@@ -31,6 +31,9 @@ export function ProposeThemeScreen() {
   const [submit, { isLoading }] = useProposeTopicMutation();
   const isTeacher = useAppSelector(selectIsTeacher);
   const id = useAppSelector(selectUserId);
+
+  // android specific code
+  const [show, setShow] = useState(false);
 
   const onSubmit = async (data: TopicForm) => {
     let temp = {
@@ -150,15 +153,43 @@ export function ProposeThemeScreen() {
               },
             }) => (
               <Box alignSelf="center">
-                <DateTimePicker
-                  testID="dateTimePicker"
-                  value={value}
-                  mode={'date'}
-                  is24Hour={true}
-                  onChange={(_, selectedDate) => {
-                    onChange(selectedDate);
-                  }}
-                />
+                {/* ios */}
+                {Platform.OS === 'ios' && (
+                  <DateTimePicker
+                    testID="dateTimePicker"
+                    value={value}
+                    mode={'date'}
+                    is24Hour={true}
+                    onChange={(_, selectedDate) => {
+                      setShow(false);
+                      onChange(selectedDate);
+                    }}
+                  />
+                )}
+
+                {Platform.OS === 'android' && (
+                  <>
+                    {show && (
+                      <DateTimePicker
+                        testID="dateTimePicker"
+                        value={value}
+                        mode={'date'}
+                        is24Hour={true}
+                        onChange={(_, selectedDate) => {
+                          setShow(false);
+                          onChange(selectedDate);
+                        }}
+                      />
+                    )}
+                    <Button onPress={() => setShow(true)}>
+                      {value.toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric',
+                      })}
+                    </Button>
+                  </>
+                )}
 
                 {deadlineError && (
                   <FormControl.ErrorMessage>
